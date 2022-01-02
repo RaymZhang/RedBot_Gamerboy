@@ -32,7 +32,7 @@ class Perudo_player():
 		self.palifico_round = -1
 		
 		for i in range(0, ndice):
-			self.dices.append(Die())
+			self.dices.append(die())
 
 	
 	def roll_dice(self):
@@ -114,7 +114,7 @@ class Perudo_player():
 		return bet
 
 	async def send_dice(self):
-		string = "Voici tes dés :"
+		string = "Here are your dices :"
 		for die in self.dices:
 			string += ' {0}'.format(die.value)
 			# print(self.name + string)
