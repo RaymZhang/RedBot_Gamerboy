@@ -34,7 +34,7 @@ class GamerBoy(commands.Cog):
 
 				await self.gamecog.wait_for_player()
 				self.game_on = 2
-				print(self.players)
+				print(self.gamecog.players)
 				await self.gamecog.run_game()
 
 				self.gamecog = None
