@@ -61,7 +61,7 @@ class perudo_player():
 		bet = None
 		while bet is None:
 			bet_input = await self.instance.wait_for('message', check = self.check_bet())
-						bet_input = bet_input.content
+			bet_input = bet_input.content
 			print(str(bet_input))
 
 			if bet_input.lower() == 'dudo':
