@@ -1,5 +1,5 @@
 from redbot.core import commands
-import Perudo.Perudo
+from Perudo.Perudo import Perudo
 
 
 class GamerBoy(commands.Cog):
