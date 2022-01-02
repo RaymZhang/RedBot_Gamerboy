@@ -32,10 +32,10 @@ class Coggameinstance(commands.Cog):
 
 	@commands.Cog.listener('on_message')
 	async def add_player(self, message):
-		if self.game_on == 1 and message == "me" and message.author not in self.players:
+		if self.game_on == 1 and message.content == "me" and message.author not in self.players:
 			self.players.append(message.author)
 			await self.ctx.send("{0}, you are registered".format(message.author.mention))
-		elif self.game_on == 1 and message == "me" and message.author in self.players:
+		elif self.game_on == 1 and message.content == "me" and message.author in self.players:
 			await self.ctx.send("{0}, you are already registered".format(message.author.mention))
 
 	
