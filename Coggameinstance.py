@@ -32,8 +32,8 @@ class Coggameinstance(commands.Cog):
 		await self.wait_for('message', check = self.check_start(message))
 		
 
-	@commands.Cog.listener("on_message")
-	async def add_player(message):
+	@commands.Cog.listener(name = "on_message")
+	async def add_player(self, message):
 		if self.game_on == 1 and message == "me" and message.author not in self.players:
 			self.players.append(message.author)
 			await message.channel.send("{0}, you are registered".format(message.author.mention))
