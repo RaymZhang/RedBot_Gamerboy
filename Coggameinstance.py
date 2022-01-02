@@ -20,11 +20,8 @@ class Coggameinstance(commands.Cog):
 		self.game_on = 0
 		self.ctx = ctx
 
-	def check_start(self, message):
-		if message.content == "!start":
-			return True
-		else :
-			return False
+	def check_start(self):
+		return lambda m: m.content == "!start"
 
 
 	async def wait_for_player(self):
