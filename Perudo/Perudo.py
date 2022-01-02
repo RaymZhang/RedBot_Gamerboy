@@ -45,10 +45,10 @@ class Perudo(Coggameinstance):
 		while len(self.players) > 1:
 			await self.run_round()
 
-		print(winner(self.players[0].name))
+		print(winner(self.players[0].mention))
 		self.game_on = 0
 
-		await self.ctx.send(winner(self.players[0].name))
+		await self.ctx.send(winner(self.players[0].mention))
 
 	async def run_round(self):
 		self.round += 1
@@ -64,8 +64,8 @@ class Perudo(Coggameinstance):
 		round_over = False
 		current_bet = None
 		current_player = self.first_player
-		print('{0} play first...'.format(current_player.name))
-		await self.ctx.send('{0} play first...'.format(current_player.name))
+		print('{0} play first...'.format(current_player.mention))
+		await self.ctx.send('{0} play first...'.format(current_player.mention))
 
 		while not round_over:
 			next_player = self.get_next_player(current_player)
@@ -77,8 +77,8 @@ class Perudo(Coggameinstance):
 				bet_string = 'Compte exacte !'
 			else:
 				bet_string = next_bet
-			print('{0}: {1}'.format(current_player.name, bet_string))
-			await self.ctx.send('{0}: {1}'.format(current_player.name, bet_string))
+			print('{0}: {1}'.format(current_player.mention, bet_string))
+			await self.ctx.send('{0}: {1}'.format(current_player.mention, bet_string))
 
 			if next_bet == DUDO:
 				self.pause(0.5)
@@ -138,14 +138,14 @@ class Perudo(Coggameinstance):
 
 	async def remove_die(self, player):
 		player.dices.pop()
-		msg = '{0} loose a dice'.format(player.name)
+		msg = '{0} loose a dice'.format(player.mention)
 		if len(player.dices) == 0:
-			msg += ' {0} adios !'.format(player.name)
+			msg += ' {0} adios !'.format(player.mention)
 			self.first_player = self.get_next_player(player)
 			self.players.remove(player)
 		elif len(player.dices) == 1 and player.palifico_round == -1:
 			player.palifico_round = self.round + 1
-			msg += ' Last dice ! {0} is palifico!'.format(player.name)
+			msg += ' Last dice ! {0} is palifico!'.format(player.mention)
 		else:
 			msg += ' Only {0} dices left!'.format(len(player.dices))
 		# print(msg)
@@ -154,10 +154,10 @@ class Perudo(Coggameinstance):
 	async def add_die(self, player):
 		if len(player.dices) < self.dice_number :
 			player.dices.append(Die())
-			msg = '{0} Earn a dice'.format(player.name)
+			msg = '{0} Earn a dice'.format(player.mention)
 			msg += ' He has now {0} !'.format(len(player.dices))
 		else :
-			msg = '{0} Has already the maximun number of dice'.format(player.name)
+			msg = '{0} Has already the maximun number of dice'.format(player.mention)
 		# print(msg)
 		await self.ctx.send(msg)
 
@@ -170,9 +170,9 @@ class Perudo(Coggameinstance):
 				return True
 		return False
 
-	# def get_random_name(self):
-	# 	random.shuffle(bot_names)
-	# 	return bot_names.pop()
+	# def get_random_mention(self):
+	# 	random.shuffle(bot_mentions)
+	# 	return bot_mentions.pop()
 
 	def get_next_player(self, player):
 		return self.players[(self.players.index(player) + 1) % len(self.players)]

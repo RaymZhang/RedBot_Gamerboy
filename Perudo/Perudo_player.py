@@ -22,8 +22,11 @@ class Perudo_player():
 		self.discord_member = discord_member
 		self.ndice = ndice
 		self.name = discord_member.mention
+		self.mention = discord_member.mention
+
 		self.dices = []
 		self.instance = instance
+
 
 
 		self.palifico_round = -1

@@ -16,7 +16,7 @@ class GamerBoy(commands.Cog):
 		self.gamecog = None
 		self.bot.remove_cog(self.game)
 
-	
+
 
 
 	@commands.command()
@@ -33,6 +33,7 @@ class GamerBoy(commands.Cog):
 				self.gamecog = self.bot.get_cog(game)
 
 				await self.gamecog.wait_for_player()
+				self.game_on = 2
 				await self.gamecog.run_game()
 
 				self.gamecog = None
