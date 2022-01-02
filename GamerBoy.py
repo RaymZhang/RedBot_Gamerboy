@@ -29,9 +29,9 @@ class GamerBoy(commands.Cog):
 				self.bot.add_cog(Perudo(self.bot,ctx))
 				self.gamecog = self.bot.get_cog(game)
 
-				await self.gamecogs.wait_for_player()
-				await self.gamecogs.run_game()
+				await self.gamecog.wait_for_player()
+				await self.gamecog.run_game()
 
-				self.gamecogs = None
+				self.gamecog = None
 				self.bot.remove_cog(game)
 
