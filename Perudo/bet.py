@@ -1,8 +1,8 @@
-from bet_exceptions import InvalidBetException
-from bet_exceptions import InvalidDieValueException
-from bet_exceptions import InvalidNonWildcardQuantityException
-from bet_exceptions import InvalidWildcardQuantityException
-from bet_exceptions import NonPalificoChangeException
+from .bet_exceptions import *
+# from bet_exceptions import InvalidDieValueException
+# from bet_exceptions import InvalidNonWildcardQuantityException
+# from bet_exceptions import InvalidWildcardQuantityException
+# from bet_exceptions import NonPalificoChangeException
 
 class Bet(object):
 

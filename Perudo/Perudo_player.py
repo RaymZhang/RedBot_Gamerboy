@@ -1,5 +1,5 @@
-from die import die
-from String_en import *
+from .die import die
+from .String_en import *
 
 class perudo_player():
 	"""
