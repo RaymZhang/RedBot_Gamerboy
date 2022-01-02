@@ -1,3 +1,4 @@
+import random
 from redbot.core import commands 
 from .Perudo_player import Perudo_player
 from ..Coggameinstance import Coggameinstance
