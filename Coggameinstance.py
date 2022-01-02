@@ -1,6 +1,6 @@
 from redbot.core import commands 
 
-class Coggameinstance(commands.cog):
+class Coggameinstance(commands.Cog):
 	"""
 	Classe containing general function to play a game
 	
