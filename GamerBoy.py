@@ -8,12 +8,13 @@ class GamerBoy(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 		self.game_on = 0
-		self.gamecogs = None
+		self.gamecog = None
 
 	@commands.command()
 	async def ragequit(self, ctx):
 		self.game_on = 0
-		self.gamecogs = None
+		self.gamecog = None
+		self.bot.remove_cog(self.game)
 
 
 	@commands.command()
@@ -21,15 +22,16 @@ class GamerBoy(commands.Cog):
 		"""
 		List of available game
 		"""
+		self.game = game
 		if self.game_on == 0 : 
 			if game == "Perudo" :
 				await ctx.send("{0.author} wants to play Perudo".format(ctx))
 				self.bot.add_cog(Perudo(self.bot,ctx))
-				self.gamecogs = self.get_cog('Perudo')
+				self.gamecog = self.bot.get_cog(game)
 
 				await self.gamecogs.wait_for_player()
 				await self.gamecogs.run_game()
 
 				self.gamecogs = None
-				self.bot.remove_cog('Perudo')
+				self.bot.remove_cog(game)
 
