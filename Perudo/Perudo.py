@@ -28,7 +28,7 @@ class Perudo(Coggameinstance):
 		for joueur in self.players:
 			self.players.append(
 				Perudo_player(
-					joueur = joueur,
+					discord_member = joueur,
 					dice_number = self.ndice_player,
 					instance = self.bot
 
