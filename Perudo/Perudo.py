@@ -13,8 +13,8 @@ class Perudo(Coggameinstance):
 
 	def __init__(self, bot, ctx):
 		super().__init__(bot,ctx) # supper init from the Coggameinstance
-		self.ndice = 0
-		self.ndice_player = None
+		#self.ndice = None
+		self.ndice_player = 5
 		self.players = []
 		self.first_player = None
 
