@@ -14,19 +14,19 @@ class Perudo(Coggameinstance):
 		super().__init__(bot,ctx) # supper init from the Coggameinstance
 		self.ndice = 0
 		self.ndice_player = None
-		self.players = None
+		self.players = []
 		self.first_player = None
+
 
 	
 	async def run_game(self):
 		self.round = 0
 		self.game_on = 2
-		self.players = []
 
 
 		for joueur in self.players:
 			self.players.append(
-				perudo_player(
+				Perudo_player(
 					joueur = joueur,
 					dice_number = self.ndice_player,
 					instance = self

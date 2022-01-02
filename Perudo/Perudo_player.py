@@ -1,7 +1,7 @@
 from .die import die
 from .String_en import *
 
-class perudo_player():
+class Perudo_player():
 	"""
 	The perudo player class, transform a discord person class into a player of Perudo
 
