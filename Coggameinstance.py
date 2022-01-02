@@ -14,7 +14,7 @@ class Coggameinstance(commands.Cog):
 		-game_on : state of the game, 0 game finished, 1 looking for player, 2 game playing 
 	"""
 
-	def __init__(self, bot):
+	def __init__(self, bot, ctx):
 		self.bot = bot
 		self.players = []
 		self.game_on = 0
