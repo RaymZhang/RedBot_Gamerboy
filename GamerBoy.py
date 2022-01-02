@@ -24,12 +24,12 @@ class GamerBoy(commands.Cog):
 		if self.game_on == 0 : 
 			if game == "Perudo" :
 				await ctx.send("{0.author} wants to play Perudo".format(ctx))
-				self.add_cog(Perudo(self.bot,ctx))
+				self.bot.add_cog(Perudo(self.bot,ctx))
 				self.gamecogs = self.get_cog('Perudo')
 
 				await self.gamecogs.wait_for_player()
 				await self.gamecogs.run_game()
 
 				self.gamecogs = None
-				self.remove_cog('Perudo')
+				self.bot.remove_cog('Perudo')
 
