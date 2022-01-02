@@ -24,6 +24,7 @@ class GamerBoy(commands.Cog):
 		"""
 		self.game = game
 		if self.game_on == 0 : 
+			self.game_on = 1
 			if game == "Perudo" :
 				await ctx.send("{0.author} wants to play Perudo".format(ctx))
 				self.bot.add_cog(Perudo(self.bot,ctx))
