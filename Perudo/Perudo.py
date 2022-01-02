@@ -1,5 +1,5 @@
 from redbot.core import commands 
-from .Perudo import perudo_player
+from .Perudo_player import Perudo_player
 from .. import	Coggameinstance
 from String_en import *
 

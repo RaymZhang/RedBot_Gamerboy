@@ -47,7 +47,7 @@ class perudo_player():
 		return number
 
 
-	def check(self):
+	def check_bet(self):
 		return lambda m: m.author == self.joueur and m.channel == self.instance.ctx.channel
 
 	async def make_bet(self, current_bet):
@@ -60,8 +60,8 @@ class perudo_player():
 
 		bet = None
 		while bet is None:
-			bet_input = await self.client.wait_for('message', check = self.check())
-			bet_input = bet_input.content[]
+			bet_input = await self.instance.wait_for('message', check = self.check_bet())
+                        bet_input = bet_input.content
 			print(str(bet_input))
 
 			if bet_input.lower() == 'dudo':
