@@ -1,4 +1,4 @@
-from .GamerBoy import MyCog
+from .GamerBoy import GamerBoy
 
 
 def setup(bot):
