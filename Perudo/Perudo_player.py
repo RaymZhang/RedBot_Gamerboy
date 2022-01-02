@@ -28,7 +28,6 @@ class Perudo_player():
 
 		self.palifico_round = -1
 		
-
 		for i in range(0, ndice):
 			self.dices.append(Die())
 
@@ -60,7 +59,7 @@ class Perudo_player():
 
 		bet = None
 		while bet is None:
-			bet_input = await self.instance.wait_for('message', check = self.check_bet())
+			bet_input = await self.instance.bot.wait_for('message', check = self.check_bet())
 			bet_input = bet_input.content
 			print(str(bet_input))
 

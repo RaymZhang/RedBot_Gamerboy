@@ -29,7 +29,7 @@ class Perudo(Coggameinstance):
 				Perudo_player(
 					joueur = joueur,
 					dice_number = self.ndice_player,
-					instance = self
+					instance = self.bot
 
 				)
 			)

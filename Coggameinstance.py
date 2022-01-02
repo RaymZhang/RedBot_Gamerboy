@@ -29,7 +29,7 @@ class Coggameinstance(commands.Cog):
 
 	async def wait_for_player(self):
 		self.ctx.send("Say 'me' to play and '!start' to start the game")
-		await self.wait_for('message', check = self.check_start(message))
+		await self.bot.wait_for('message', check = self.check_start(message))
 		
 
 	@commands.Cog.listener(name = "on_message")
