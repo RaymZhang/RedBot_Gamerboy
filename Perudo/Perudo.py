@@ -29,7 +29,7 @@ class Perudo(Coggameinstance):
 			self.players.append(
 				Perudo_player(
 					discord_member = joueur,
-					dice_number = self.ndice_player,
+					ndice = self.ndice_player,
 					instance = self.bot
 
 				)
