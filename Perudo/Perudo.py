@@ -1,6 +1,6 @@
 from redbot.core import commands 
 from .Perudo_player import Perudo_player
-from .. import	Coggameinstance
+from ..Coggameinstance import Coggameinstance
 from .String_en import *
 
 
