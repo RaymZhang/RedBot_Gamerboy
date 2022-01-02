@@ -27,7 +27,7 @@ class Coggameinstance(commands.Cog):
 			return False
 
 
-	async def wait_for_player():
+	async def wait_for_player(self):
 		ctx.send("Say 'me' to play and '!start' to start the game")
 		await self.wait_for('message', check = self.check_start(message))
 		
