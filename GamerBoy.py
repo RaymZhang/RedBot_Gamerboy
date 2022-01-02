@@ -16,6 +16,8 @@ class GamerBoy(commands.Cog):
 		self.gamecog = None
 		self.bot.remove_cog(self.game)
 
+	
+
 
 	@commands.command()
 	async def launch(self, ctx, game):

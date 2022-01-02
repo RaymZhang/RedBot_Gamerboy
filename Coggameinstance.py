@@ -17,7 +17,6 @@ class Coggameinstance(commands.Cog):
 	def __init__(self, bot, ctx):
 		self.bot = bot
 		self.players = []
-		self.game_on = 0
 		self.ctx = ctx
 
 	def check_start(self):
@@ -33,9 +32,9 @@ class Coggameinstance(commands.Cog):
 	async def add_player(self, message):
 		if self.game_on == 1 and message == "me" and message.author not in self.players:
 			self.players.append(message.author)
-			await message.channel.send("{0}, you are registered".format(message.author.mention))
+			await self.ctx.send("{0}, you are registered".format(message.author.mention))
 		elif self.game_on == 1 and message == "me" and message.author in self.players:
-			await message.channel.send("{0}, you are already registered".format(message.author.mention))
+			await self.ctx.send("{0}, you are already registered".format(message.author.mention))
 
 	
 	@commands.command()
