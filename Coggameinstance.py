@@ -18,12 +18,14 @@ class Coggameinstance(commands.Cog):
 		self.bot = bot
 		self.players = []
 		self.ctx = ctx
+		self.game_on = 0
 
 	def check_start(self):
 		return lambda m: m.content == "!start"
 
 
 	async def wait_for_player(self):
+		self.game_on = 1
 		await self.ctx.send("Say 'me' to play and '!start' to start the game")
 		await self.bot.wait_for('message', check = self.check_start())
 
