@@ -20,6 +20,12 @@ def correct_dudo(quantity, value):
 def incorrect_dudo(quantity, value):
     return 'There are actually {0} {1}s. Incorrect dudo!'.format(quantity, value)
 
+def correct_compte_exacte(quantity, value):
+	return "There exactly is {0} {1}. Well done !".format(quantity, value)
+
+def incorrect_compte_exacte(quantity, value):
+	return "There exactly is {0} {1}s. That's a miss !".format(quantity, value)
+
 
 def round_title(round_number, is_palifico_round):
     if is_palifico_round:

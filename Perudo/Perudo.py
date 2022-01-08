@@ -1,8 +1,10 @@
 import random
+import time
 from redbot.core import commands
 from .Perudo_player import Perudo_player
 from ..Coggameinstance import Coggameinstance
-from .String_en import *
+from .String_en import DUDO, COMPTE_EXACT, welcome_message, winner, round_title, incorrect_dudo, correct_dudo, incorrect_compte_exacte, correct_compte_exacte
+from die import die
 
 
 class Perudo(Coggameinstance):
@@ -14,6 +16,7 @@ class Perudo(Coggameinstance):
     def __init__(self, bot, ctx):
         super().__init__(bot, ctx)  # supper init from the Coggameinstance
         #self.ndice = None
+        self.config["playslow"] = 1
         self.ndice_player = 5
         self.players = []
         self.first_player = None
@@ -149,7 +152,7 @@ class Perudo(Coggameinstance):
 
     async def add_die(self, player):
         if len(player.dices) < self.dice_number:
-            player.dices.append(Die())
+            player.dices.append(die())
             msg = '{0} Earn a dice'.format(player.mention)
             msg += ' He has now {0} !'.format(len(player.dices))
         else:
@@ -177,5 +180,5 @@ class Perudo(Coggameinstance):
         return self.players[(self.players.index(player) - 1) % len(self.players)]
 
     def pause(self, duration):
-        if config.play_slow:
+        if self.config["playslow"]:
             time.sleep(duration)

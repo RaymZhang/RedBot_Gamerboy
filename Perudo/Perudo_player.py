@@ -1,5 +1,9 @@
-from .die import die
-from .String_en import *
+from die import die
+from .String_en import DUDO, COMPTE_EXACT, BAD_BET_ERROR, INVALID_BET_EXCEPTION, INVALID_DIE_VALUE_ERROR, \
+                INVALID_NON_WILDCARD_QUANTITY, INVALID_WILDCARD_QUANTITY, NON_PALIFICO_CHANGE_ERROR
+from bet_exceptions import NonPalificoChangeException, InvalidBetException, InvalidDieValueException,\
+                             InvalidNonWildcardQuantityException, InvalidWildcardQuantityException
+from bet import create_bet
 
 
 class Perudo_player():
@@ -14,10 +18,6 @@ class Perudo_player():
             n_dice (int) : number of dice
             name (str) : discord mention of the person
             dice (list) : list of dice
-
-
-
-
     """
 
     def __init__(self, discord_member, ndice, instance):

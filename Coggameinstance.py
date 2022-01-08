@@ -16,10 +16,11 @@ class Coggameinstance(commands.Cog):
     """
 
     def __init__(self, bot, ctx):
+        self.config = {}
         self.bot = bot
         self.players = []
         self.ctx = ctx
-        self.game_on = 0
+        self.game_on = 1
 
     def check_start(self):
         return lambda m: m.content == "!start"
