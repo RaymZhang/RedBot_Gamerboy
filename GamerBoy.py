@@ -23,7 +23,7 @@ class GamerBoy(commands.Cog):
         List of available game
         """
         self.game = game
-        if self.game_on == 0 and :
+        if self.game_on == 0:
             if self.game.lower() in self.gamelist:
                 self.game_on = 1
                 if game.lower() == "perudo":
