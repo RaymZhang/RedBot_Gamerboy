@@ -1,10 +1,10 @@
 import random
 import time
 from redbot.core import commands
-from Perudo_player import Perudo_player
+from .Perudo_player import Perudo_player
 from ..Coggameinstance import Coggameinstance
 from .String_en import DUDO, COMPTE_EXACT, welcome_message, winner, round_title, incorrect_dudo, correct_dudo, incorrect_compte_exacte, correct_compte_exacte
-from die import die
+from .die import die
 
 
 class Perudo(Coggameinstance):
