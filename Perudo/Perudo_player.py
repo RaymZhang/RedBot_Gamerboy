@@ -1,9 +1,9 @@
 from .die import die
-from .String_en import DUDO, COMPTE_EXACT, BAD_BET_ERROR, INVALID_BET_EXCEPTION, INVALID_DIE_VALUE_ERROR, \
+from .String_en import BAD_BET_ERROR, INVALID_BET_EXCEPTION, INVALID_DIE_VALUE_ERROR, \
                 INVALID_NON_WILDCARD_QUANTITY, INVALID_WILDCARD_QUANTITY, NON_PALIFICO_CHANGE_ERROR
 from .bet_exceptions import NonPalificoChangeException, InvalidBetException, InvalidDieValueException,\
                              InvalidNonWildcardQuantityException, InvalidWildcardQuantityException
-from .bet import create_bet
+from .bet import DUDO, COMPTE_EXACT, create_bet
 
 
 class Perudo_player():
