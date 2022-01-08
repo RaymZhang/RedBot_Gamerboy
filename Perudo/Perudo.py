@@ -1,7 +1,7 @@
 import random
 import time
 from redbot.core import commands
-from .Perudo_player import Perudo_player
+from Perudo_player import Perudo_player
 from ..Coggameinstance import Coggameinstance
 from .String_en import DUDO, COMPTE_EXACT, welcome_message, winner, round_title, incorrect_dudo, correct_dudo, incorrect_compte_exacte, correct_compte_exacte
 from die import die
@@ -18,7 +18,7 @@ class Perudo(Coggameinstance):
         #self.ndice = None
         self.config["playslow"] = 1
         self.ndice_player = 5
-        self.players = []
+        self.perudo_players = []
         self.first_player = None
 
     async def run_game(self):
@@ -26,33 +26,31 @@ class Perudo(Coggameinstance):
         self.game_on = 2
 
         for joueur in self.players:
-            self.players.append(
+            self.perudo_players.append(
                 Perudo_player(
                     discord_member=joueur,
                     ndice=self.ndice_player,
                     instance=self.bot
-
                 )
             )
 
-        random.shuffle(self.players)
+        random.shuffle(self.perudo_players)
 
-        print(welcome_message(self.players))
-        await self.ctx.send(welcome_message(self.players))
+        await self.ctx.send(welcome_message(self.perudo_players))
 
-        self.first_player = random.choice(self.players)
+        self.first_player = random.choice(self.perudo_players)
 
-        while len(self.players) > 1:
+        while len(self.perudo_players) > 1:
             await self.run_round()
 
-        print(winner(self.players[0].mention))
+        print(winner(self.perudo_players[0].mention))
         self.game_on = 0
 
-        await self.ctx.send(winner(self.players[0].mention))
+        await self.ctx.send(winner(self.perudo_players[0].mention))
 
     async def run_round(self):
         self.round += 1
-        for player in self.players:
+        for player in self.perudo_players:
             player.roll_dice()
             await player.send_dice()
 
@@ -91,7 +89,7 @@ class Perudo(Coggameinstance):
             else:
                 current_bet = next_bet
 
-            if len(self.players) > 1:
+            if len(self.perudo_players) > 1:
                 current_player = next_player
 
             self.pause(0.5)
@@ -141,7 +139,7 @@ class Perudo(Coggameinstance):
         if len(player.dices) == 0:
             msg += ' {0} adios !'.format(player.mention)
             self.first_player = self.get_next_player(player)
-            self.players.remove(player)
+            self.perudo_players.remove(player)
         elif len(player.dices) == 1 and player.palifico_round == -1:
             player.palifico_round = self.round + 1
             msg += ' Last dice ! {0} is palifico!'.format(player.mention)
@@ -164,7 +162,7 @@ class Perudo(Coggameinstance):
     def is_palifico_round(self):
         # if len(self.players) < 3:
         # 	return False
-        for player in self.players:
+        for player in self.perudo_players:
             if player.palifico_round == self.round:
                 return True
         return False
@@ -174,10 +172,10 @@ class Perudo(Coggameinstance):
     # 	return bot_mentions.pop()
 
     def get_next_player(self, player):
-        return self.players[(self.players.index(player) + 1) % len(self.players)]
+        return self.perudo_players[(self.perudo_players.index(player) + 1) % len(self.perudo_players)]
 
     def get_previous_player(self, player):
-        return self.players[(self.players.index(player) - 1) % len(self.players)]
+        return self.perudo_players[(self.perudo_players.index(player) - 1) % len(self.perudo_players)]
 
     def pause(self, duration):
         if self.config["playslow"]:
