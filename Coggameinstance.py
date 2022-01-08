@@ -20,7 +20,7 @@ class Coggameinstance(commands.Cog):
         self.bot = bot
         self.players = []
         self.ctx = ctx
-        self.game_on = 1
+        self.game_on = 0
 
     def check_start(self):
         return lambda m: m.content == "!start"
